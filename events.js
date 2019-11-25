@@ -60,8 +60,8 @@ var events = {
     endDate: todayDate.getFullYear() + '-12-01',
     endTime:'23:59:59',
     img:{
-      logo: 'black-friday/logo.png',
-      bg: 'black-friday/bf-bg.jpg'
+      logo: '/black-friday/logo.png',
+      bg: '/black-friday/bf-bg.jpg'
     }
   },
   cyberMonday: {
@@ -70,8 +70,8 @@ var events = {
     endDate: todayDate.getFullYear() + '-12-02',
     endTime: '23:59:59',
     img:{
-      logo: 'cyber-monday/cyber-monday.png',
-      bg: 'cyber-monday/cyber-monday-bg.jpg'
+      logo: '/cyber-monday/cyber-monday.png',
+      bg: '/cyber-monday/cyber-monday-bg.jpg'
     }
   }
 };
