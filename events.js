@@ -60,8 +60,8 @@ var events = {
     endDate: todayDate.getFullYear() + '-12-01',
     endTime:'23:59:59',
     img:{
-      logo: 'black-friday/images/logo.png',
-      bg:'black-friday/images/bf-bg.jpg'
+      logo: 'black-friday/logo.png',
+      bg:'black-friday/bf-bg.jpg'
     }
   },
   cyberMonday: {
