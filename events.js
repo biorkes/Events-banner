@@ -18,7 +18,7 @@ function Event(from, to, bg, logo) {
 
     var bannerItemImage = document.createElement('li');
     bannerItemImage.classList.add('black-friday-banner-item');
-\
+
     var bannerImage = document.createElement('img');
     bannerImage.setAttribute('src', logo);
 
