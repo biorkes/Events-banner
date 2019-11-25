@@ -67,7 +67,7 @@ var events = {
   cyberMonday: {
     startDate: todayDate.getFullYear() + '-12-02',
     startTime: '00:00:00',
-    endDate: todayDate.getFullYear() + '-12-02',
+    endDate: todayDate.getFullYear() + '-12-03',
     endTime: '23:59:59',
     img:{
       logo: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/cyber-monday/cyber-monday.png',
