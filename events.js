@@ -60,8 +60,8 @@ var events = {
     endDate: todayDate.getFullYear() + '-12-01',
     endTime:'23:59:59',
     img:{
-      logo: 'http://forskolinactive.com/js/eventCounter/black-friday/images/logo.png',
-      bg:'http://forskolinactive.com/js/eventCounter/black-friday/images/bf-bg.jpg'
+      logo: 'black-friday/images/logo.png',
+      bg:'black-friday/images/bf-bg.jpg'
     }
   },
   cyberMonday: {
@@ -70,8 +70,8 @@ var events = {
     endDate: todayDate.getFullYear() + '-12-02',
     endTime: '23:59:59',
     img:{
-      logo: 'http://forskolinactive.com/js/eventCounter/cyber-monday/cyber-monday.png',
-      bg:'http://forskolinactive.com/js/eventCounter/cyber-monday/cyber-monday-bg.jpg'
+      logo: 'cyber-monday/cyber-monday.png',
+      bg:'cyber-monday/cyber-monday-bg.jpg'
     }
   }
 };
