@@ -61,7 +61,7 @@ var events = {
     endTime:'23:59:59',
     img:{
       logo: 'black-friday/logo.png',
-      bg:'black-friday/bf-bg.jpg'
+      bg: 'black-friday/bf-bg.jpg'
     }
   },
   cyberMonday: {
@@ -71,7 +71,7 @@ var events = {
     endTime: '23:59:59',
     img:{
       logo: 'cyber-monday/cyber-monday.png',
-      bg:'cyber-monday/cyber-monday-bg.jpg'
+      bg: 'cyber-monday/cyber-monday-bg.jpg'
     }
   }
 };
