@@ -77,7 +77,7 @@ var events = {
   christmasPromo: {
     startDate: todayDate.getFullYear() + '-12-04',
     startTime: '00:00:00',
-    endDate: todayDate.getFullYear()+1 + '-01-10',
+    endDate: (todayDate.getFullYear()+1) + '-01-10',
     endTime: '23:59:59',
     img:{
       logo: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/christmas/christmas-logo.png',
