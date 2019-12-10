@@ -1,6 +1,6 @@
 function Event(from, to, bg, logo) {
 
-    var styles = 'html,body,ul { margin: 0; padding: 0; }.black-friday-banner ul { list-style: none; } .black-friday-banner ul { list-style: none } .black-friday-banner img { display: block; max-width: 100%; height: auto; margin: 0; padding: 0 } .black-friday-banner { background: url('+bg+') no-repeat center center; background-size: cover; padding: 10px; position: relative; z-index: 999999; } .black-friday-banner-content { width: 100%; max-width: 1200px; margin: 0 auto } .black-friday-banner-list { display: flex; justify-content: center; align-items: center; margin: -10px } .black-friday-banner-item { padding: 0; } .black-friday-banner-date .black-friday-banner-item{ padding:10px; } .black-friday-banner-date { font-family: sans-serif; display: inline-block; font-size: 26px; font-weight: 700; text-transform: uppercase; padding: 12px 16px; background-color: #eeca20; color: #141213; transform: skew(-14deg) } .black-friday-banner-date-text { display: inline-block; white-space: nowrap; transform: skew(14deg) } @media only screen and (max-width:640px) { .black-friday-banner-date { font-size: 22px; padding: 10px 14px } .black-friday-banner-date .black-friday-banner-item { padding: 0; } } @media only screen and (max-width:480px) { .black-friday-banner-list { flex-wrap: wrap } .black-friday-banner-date, .black-friday-banner-date-text { transform: skew(0); } .black-friday-banner-date{ width: 100%; text-align: center; } }';
+    var styles = 'html,body,ul { margin: 0; padding: 0; }.event-banner ul { list-style: none; } .event-banner ul { list-style: none } .event-banner img { display: block; max-width: 100%; height: auto; margin: 0; padding: 0 } .event-banner { background: url('+bg+') no-repeat center center; background-size: cover; padding: 10px; position: relative; z-index: 999999; } .event-banner-content { width: 100%; max-width: 1200px; margin: 0 auto } .event-banner-list { display: flex; justify-content: center; align-items: center; margin: -10px } .event-banner-item { padding: 0; } .event-banner-date .event-banner-item{ padding:10px; } .event-banner-date { font-family: sans-serif; display: inline-block; font-size: 26px; font-weight: 700; text-transform: uppercase; padding: 12px 16px; background-color: #eeca20; color: #141213; transform: skew(-14deg) } .event-banner-date-text { display: inline-block; white-space: nowrap; transform: skew(14deg) } @media only screen and (max-width:640px) { .event-banner-date { font-size: 22px; padding: 10px 14px } .event-banner-date .event-banner-item { padding: 0; } } @media only screen and (max-width:480px) { .event-banner-list { flex-wrap: wrap } .event-banner-date, .event-banner-date-text { transform: skew(0); } .event-banner-date{ width: 100%; text-align: center; } }';
     var styleEle = document.createElement('style');
     styleEle.rel = 'stylesheet';
     styleEle.type = 'text/css';
@@ -8,29 +8,29 @@ function Event(from, to, bg, logo) {
     document.head.append(styleEle);
 
     var banner = document.createElement('div');
-    banner.classList.add('black-friday-banner');
+    banner.classList.add('event-banner');
 
     var bannerContent = document.createElement('div');
-    bannerContent.classList.add('black-friday-banner-content');
+    bannerContent.classList.add('event-banner-content');
 
     var bannerList = document.createElement('ul');
-    bannerList.classList.add('black-friday-banner-list');
+    bannerList.classList.add('event-banner-list');
 
     var bannerItemImage = document.createElement('li');
-    bannerItemImage.classList.add('black-friday-banner-item');
+    bannerItemImage.classList.add('event-banner-item');
 
     var bannerImage = document.createElement('img');
     bannerImage.setAttribute('src', logo);
 
     var bannerItemDate = document.createElement('li');
-    bannerItemDate.classList.add('black-friday-banner-item');
+    bannerItemDate.classList.add('event-banner-item');
 
 
     var bannerDateDiv = document.createElement('div');
-    bannerDateDiv.classList.add('black-friday-banner-date');
+    bannerDateDiv.classList.add('event-banner-date');
 
     var bannerDate = document.createElement('span');
-    bannerDate.classList.add('black-friday-banner-date-text');
+    bannerDate.classList.add('event-banner-date-text');
     bannerDate.innerHTML = from + ' - ' + to;
 
     // li
@@ -77,7 +77,7 @@ var events = {
   christmasPromo: {
     startDate: todayDate.getFullYear() + '-12-04',
     startTime: '00:00:00',
-    endDate: todayDate.getFullYear() + '-12-28',
+    endDate: todayDate.getFullYear()+1 + '-01-10',
     endTime: '23:59:59',
     img:{
       logo: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/christmas/christmas-logo.png',
