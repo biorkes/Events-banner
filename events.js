@@ -81,7 +81,7 @@ var events = {
     endTime: '23:59:59',
     img:{
       logo: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/christmas/christmas-logo.png',
-      bg: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/christmasy/christmas-bg.jpg'
+      bg: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/christmas/christmas-bg.jpg'
     }
   }
 };
