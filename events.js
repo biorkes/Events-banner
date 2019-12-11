@@ -86,6 +86,12 @@ var events = {
   }
 };
 
+/**
+ * Add leading zero infront of the month
+ * @param  {int} n month number
+ * @return {string}
+ */
+function pad(n){return n<10 ? '0'+n : n}
 
 for(var event in events){
   
@@ -95,8 +101,8 @@ for(var event in events){
   if (todayDate >= theEventStartDate && theEventEndDate > todayDate) {
     var dateStarts = new Date(events[ event ].startDate);
     var dateEnds = new Date(events[ event ].endDate);
-    var from = dateStarts.getDate() + '.' + (dateStarts.getMonth() + 1);
-    var to = dateEnds.getDate() + '.' + (dateEnds.getMonth() + 1);
+    var from = dateStarts.getDate() + '.' + pad(dateStarts.getMonth() + 1);
+    var to = dateEnds.getDate() + '.' + pad(dateEnds.getMonth() + 1);
 
     Event( from, to, events[ event ].img.bg, events[ event ].img.logo);
   }
