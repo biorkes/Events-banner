@@ -55,9 +55,9 @@ var theEventStartDate,theEventEndDate;
 
 var events = {
   blackFriday: {
-    startDate: todayDate.getFullYear() + '-11-25',
+    startDate: todayDate.getFullYear() + '-11-22',
     startTime:'00:00:00',
-    endDate: todayDate.getFullYear() + '-12-01',
+    endDate: todayDate.getFullYear() + '-11-27',
     endTime:'23:59:59',
     img:{
       logo: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/black-friday/logo.png',
@@ -65,9 +65,9 @@ var events = {
     }
   },
   cyberMonday: {
-    startDate: todayDate.getFullYear() + '-12-02',
+    startDate: todayDate.getFullYear() + '-11-28',
     startTime: '00:00:00',
-    endDate: todayDate.getFullYear() + '-12-03',
+    endDate: todayDate.getFullYear() + '-11-30',
     endTime: '23:59:59',
     img:{
       logo: 'https://raw.githubusercontent.com/biorkes/Events-banner/master/cyber-monday/cyber-monday.png',
@@ -75,7 +75,7 @@ var events = {
     }
   },
   christmasPromo: {
-    startDate: todayDate.getFullYear() + '-12-04',
+    startDate: todayDate.getFullYear() + '-12-01',
     startTime: '00:00:00',
     endDate: (todayDate.getFullYear()+1) + '-01-10',
     endTime: '23:59:59',
