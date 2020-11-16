@@ -65,7 +65,7 @@ var theEventStartDate, theEventEndDate;
 
 var events = {
 	blackFriday: {
-		startDate: todayDate.getFullYear() + "-06-22",
+		startDate: todayDate.getFullYear() + "-11-16",
 		startTime: "00:00:00",
 		endDate: todayDate.getFullYear() + "-11-27",
 		endTime: "23:59:59",
