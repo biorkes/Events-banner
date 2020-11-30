@@ -71,7 +71,7 @@ var events = {
 		endTime: "23:59:59",
 		img: {
 			logo:
-				"https://raw.githubusercontent.com/biorkes/Events-banner/master/black-friday/logo.png",
+				"https://raw.githubusercontent.com/biorkes/Events-banner/master/black-friday/logo.jpg",
 			bg:
 				"https://raw.githubusercontent.com/biorkes/Events-banner/master/black-friday/bf-bg.jpg",
 		},
