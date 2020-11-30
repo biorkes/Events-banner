@@ -79,7 +79,7 @@ var events = {
 	cyberMonday: {
 		startDate: todayDate.getFullYear() + "-11-28",
 		startTime: "00:00:00",
-		endDate: todayDate.getFullYear() + "-11-30",
+		endDate: todayDate.getFullYear() + "-12-05",
 		endTime: "23:59:59",
 		img: {
 			logo:
@@ -89,7 +89,7 @@ var events = {
 		},
 	},
 	christmasPromo: {
-		startDate: todayDate.getFullYear() + "-12-01",
+		startDate: todayDate.getFullYear() + "-12-06",
 		startTime: "00:00:00",
 		endDate: todayDate.getFullYear() + 1 + "-01-10",
 		endTime: "23:59:59",
