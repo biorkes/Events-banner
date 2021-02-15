@@ -1,4 +1,4 @@
-function Event(from, to, bg, logo) {
+function BannerEvent(from, to, bg, logo) {
 	
 	var styles =
 		"html,body,ul { margin: 0; padding: 0; }.event-banner ul { list-style: none; } .event-banner ul { list-style: none } .event-banner img { display: block; max-width: 100%; height: auto; margin: 0; padding: 0 } .event-banner { background: url(" +
@@ -125,6 +125,6 @@ for (var event in events) {
 		var from = dateStarts.getDate() + "." + pad(dateStarts.getMonth() + 1);
 		var to = dateEnds.getDate() + "." + pad(dateEnds.getMonth() + 1);
 
-		Event(from, to, events[event].img.bg, events[event].img.logo);
+		BannerEvent(from, to, events[event].img.bg, events[event].img.logo);
 	}
 }
