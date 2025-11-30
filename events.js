@@ -63,11 +63,119 @@ function BannerEvent(from, to, bg, logo) {
 var todayDate = new Date();
 var theEventStartDate, theEventEndDate;
 
+/**
+ * Add leading zero infront of the month
+ * @param  {int} n month number
+ * @return {string}
+ */
+function pad(n) {
+	return n < 10 ? "0" + n : n;
+}
+
+/**
+ * Format date as YYYY-MM-DD
+ * @param  {Date} date
+ * @return {string}
+ */
+function formatDate(date) {
+	var year = date.getFullYear();
+	var month = pad(date.getMonth() + 1);
+	var day = pad(date.getDate());
+	return year + "-" + month + "-" + day;
+}
+
+/**
+ * Calculate the 4th Thursday of November for a given year
+ * @param  {int} year
+ * @return {Date}
+ */
+function getThanksgiving(year) {
+	// Start with November 1st
+	var date = new Date(year, 10, 1); // Month 10 = November (0-indexed)
+	// Get the day of week for November 1st (0 = Sunday, 4 = Thursday)
+	var firstDay = date.getDay();
+	// Calculate days to add to get to the first Thursday
+	// If Nov 1 is Thursday (4), add 0 days
+	// If Nov 1 is Friday (5), add 6 days to get to next Thursday
+	// If Nov 1 is Saturday (6), add 5 days
+	// If Nov 1 is Sunday (0), add 4 days
+	// If Nov 1 is Monday (1), add 3 days
+	// If Nov 1 is Tuesday (2), add 2 days
+	// If Nov 1 is Wednesday (3), add 1 day
+	var daysToFirstThursday = (4 - firstDay + 7) % 7;
+	// Add 21 days to get to the 4th Thursday (3 weeks = 21 days)
+	date.setDate(date.getDate() + daysToFirstThursday + 21);
+	return date;
+}
+
+/**
+ * Calculate Black Friday (day after Thanksgiving)
+ * @param  {int} year
+ * @return {Date}
+ */
+function getBlackFriday(year) {
+	var thanksgiving = getThanksgiving(year);
+	var blackFriday = new Date(thanksgiving);
+	blackFriday.setDate(blackFriday.getDate() + 1);
+	return blackFriday;
+}
+
+/**
+ * Get Monday of the week containing a given date
+ * @param  {Date} date
+ * @return {Date}
+ */
+function getMondayOfWeek(date) {
+	var monday = new Date(date);
+	var day = monday.getDay(); // 0 = Sunday, 1 = Monday, etc.
+	var diff = day === 0 ? -6 : 1 - day; // Days to subtract to get to Monday
+	monday.setDate(monday.getDate() + diff);
+	monday.setHours(0, 0, 0, 0);
+	return monday;
+}
+
+/**
+ * Get Sunday of the week containing a given date
+ * @param  {Date} date
+ * @return {Date}
+ */
+function getSundayOfWeek(date) {
+	var sunday = new Date(date);
+	var day = sunday.getDay(); // 0 = Sunday, 1 = Monday, etc.
+	var diff = day === 0 ? 0 : 7 - day; // Days to add to get to Sunday
+	sunday.setDate(sunday.getDate() + diff);
+	sunday.setHours(23, 59, 59, 999);
+	return sunday;
+}
+
+/**
+ * Calculate Cyber Monday (first Monday after Black Friday)
+ * @param  {int} year
+ * @return {Date}
+ */
+function getCyberMonday(year) {
+	var blackFriday = getBlackFriday(year);
+	var cyberMonday = new Date(blackFriday);
+	// Black Friday is Friday (day 5), so add 3 days to get to Monday
+	cyberMonday.setDate(blackFriday.getDate() + 3);
+	cyberMonday.setHours(0, 0, 0, 0);
+	return cyberMonday;
+}
+
+// Calculate dates for current year
+var currentYear = todayDate.getFullYear();
+var blackFriday = getBlackFriday(currentYear);
+var blackWeekMonday = getMondayOfWeek(blackFriday);
+var blackWeekSunday = getSundayOfWeek(blackFriday);
+var cyberMonday = getCyberMonday(currentYear);
+var cyberWeekMonday = getMondayOfWeek(cyberMonday);
+var cyberWeekSunday = getSundayOfWeek(cyberMonday);
+
 var events = {
 	blackFriday: {
-		startDate: todayDate.getFullYear() + "-11-16",
+		startDate: formatDate(blackWeekMonday),
 		startTime: "00:00:00",
-		endDate: todayDate.getFullYear() + "-11-27",
+		endDate: formatDate(blackWeekSunday),
 		endTime: "23:59:59",
 		img: {
 			logo:
@@ -77,9 +185,9 @@ var events = {
 		},
 	},
 	cyberMonday: {
-		startDate: todayDate.getFullYear() + "-11-28",
+		startDate: formatDate(cyberWeekMonday),
 		startTime: "00:00:00",
-		endDate: todayDate.getFullYear() + "-12-05",
+		endDate: formatDate(cyberWeekSunday),
 		endTime: "23:59:59",
 		img: {
 			logo:
@@ -89,9 +197,9 @@ var events = {
 		},
 	},
 	christmasPromo: {
-		startDate: todayDate.getFullYear() + "-12-06",
+		startDate: currentYear + "-12-01",
 		startTime: "00:00:00",
-		endDate: todayDate.getFullYear() + 1 + "-01-10",
+		endDate: currentYear + "-12-28",
 		endTime: "23:59:59",
 		img: {
 			logo:
@@ -102,16 +210,12 @@ var events = {
 	},
 };
 
-/**
- * Add leading zero infront of the month
- * @param  {int} n month number
- * @return {string}
- */
-function pad(n) {
-	return n < 10 ? "0" + n : n;
-}
+// Check events in priority order and show only the first matching banner
+// Priority: Black Friday > Cyber Monday > Christmas
+var eventOrder = ['blackFriday', 'cyberMonday', 'christmasPromo'];
 
-for (var event in events) {
+for (var i = 0; i < eventOrder.length; i++) {
+	var event = eventOrder[i];
 	var theEventStartDate = new Date(
 		events[event].startDate + "T" + events[event].startTime + "Z"
 	);
@@ -126,5 +230,6 @@ for (var event in events) {
 		var to = dateEnds.getDate() + "." + pad(dateEnds.getMonth() + 1);
 
 		BannerEvent(from, to, events[event].img.bg, events[event].img.logo);
+		break; // Only show one banner at a time
 	}
 }
